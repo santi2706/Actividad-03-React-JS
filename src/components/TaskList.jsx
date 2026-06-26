@@ -1,11 +1,12 @@
 import Checkbox from './Checkbox.jsx'
 
-function TaskList({ tasks, toggleTask, clearCompleted, pendingCount, completedCount }) {
+// Este componente muestra la lista separada entre tareas pendientes y completadas.
+function TaskList({ pendingTasks, completedTasks, toggleTask, clearCompleted, pendingCount, completedCount }) {
   return (
     <section className="task-list">
       <div className="task-list-summary">
         <div>
-          <h2>Lista de tareas</h2>
+          <h2>Tu progreso</h2>
           <p className="task-summary">
             {pendingCount} pendientes · {completedCount} completadas
           </p>
@@ -17,17 +18,35 @@ function TaskList({ tasks, toggleTask, clearCompleted, pendingCount, completedCo
         )}
       </div>
 
-      {tasks.length === 0 ? (
-        <p className="empty-state">Aún no hay tareas. Usa el formulario para empezar.</p>
-      ) : (
-        <ul className="task-items">
-          {tasks.map((task) => (
-            <li key={task.id} className="task-row">
-              <Checkbox task={task} onToggle={() => toggleTask(task.id)} />
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="task-section">
+        <h3>Tareas por hacer</h3>
+        {pendingTasks.length === 0 ? (
+          <p className="empty-state">No tienes tareas pendientes. ¡Buen trabajo!</p>
+        ) : (
+          <ul className="task-items">
+            {pendingTasks.map((task) => (
+              <li key={task.id} className="task-row">
+                <Checkbox task={task} onToggle={() => toggleTask(task.id)} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div className="task-section">
+        <h3>Completadas</h3>
+        {completedTasks.length === 0 ? (
+          <p className="empty-state">Aún no marcas ninguna tarea como hecha.</p>
+        ) : (
+          <ul className="task-items">
+            {completedTasks.map((task) => (
+              <li key={task.id} className="task-row">
+                <Checkbox task={task} onToggle={() => toggleTask(task.id)} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </section>
   )
 }

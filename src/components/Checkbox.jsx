@@ -1,3 +1,4 @@
+// Este componente reutilizable representa una tarea individual con su checkbox.
 function Checkbox({ task, onToggle }) {
   return (
     <label className={`checkbox-wrapper ${task.done ? 'checkbox-done' : ''}`}>
