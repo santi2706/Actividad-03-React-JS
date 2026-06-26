@@ -1,0 +1,159 @@
+:root {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f7f7fb;
+  color: #242424;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.todo-container {
+  width: min(640px, 100%);
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  padding: 30px;
+}
+
+.todo-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 2.3vw, 2.5rem);
+}
+
+.todo-header p {
+  margin: 0;
+  color: #5f6573;
+  line-height: 1.6;
+}
+
+.todo-form {
+  margin: 28px 0 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d8d8dc;
+  border-radius: 14px;
+  font-size: 1rem;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #7d5bff;
+  box-shadow: 0 0 0 4px rgba(125, 91, 255, 0.12);
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0 20px;
+  min-height: 48px;
+}
+
+.button-primary {
+  background: #5f4dff;
+  color: #fff;
+}
+
+.button-secondary {
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.task-list-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.task-summary {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+.empty-state {
+  margin: 0;
+  color: #6b7280;
+  padding: 20px 0;
+}
+
+.task-items {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.task-row {
+  background: #f8f9ff;
+  border-radius: 18px;
+  padding: 14px 18px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.checkbox-input {
+  width: 18px;
+  height: 18px;
+  accent-color: #5f4dff;
+}
+
+.checkbox-text {
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+.checkbox-done .checkbox-text {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+@media (max-width: 520px) {
+  .todo-container {
+    padding: 22px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
